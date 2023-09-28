@@ -2,39 +2,14 @@ name = "src"
 main = "src/worker.ts"
 compatibility_date = "2023-09-28"
 
-# # KV Namespace binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# node_compat is required to get this warning to go away:
+# ✘ [ERROR] Could not resolve "node:net"
 
-# # Durable Object binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/durable-objects
-# [[durable_objects]]
-# binding = "MY_DURABLE_OBJECT"
-# class_name = "MyDurableObject"
+#     src/foo.ts:4:28:
+#       4 │         const net = require('node:net');
+#         ╵                             ~~~~~~~~~~
 
-# # Bucket binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv#bucket
-# [[buckets]]
-# binding = "MY_BUCKET"
-# name = "my-bucket"
-# bucket_id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+#   The package "node:net" wasn't found on the file system but is built into node.
+#   Add "node_compat = true" to your wrangler.toml file to enable Node.js compatibility.
 
-# # Service binding - For more information: https://developers.cloudflare.com/workers/platform/services
-# [[routes]]
-# binding = "MY_SERVICE"
-# pattern = "/api/*"
-# script = "api.js"
-
-# # Queue binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/queues
-# [[queues]]
-# binding = "MY_QUEUE"
-# name = "my-queue"
-# zone_id = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-
-# [env.production]
-# MY_VARIABLE = "production_value"
-
-# [env.staging]
-# MY_VARIABLE = "staging_value"
-
-# [env.shared]
-# SHARED_VARIABLE = "shared_value"
+node_compat = true
