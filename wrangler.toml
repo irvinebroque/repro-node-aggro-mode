@@ -12,4 +12,5 @@ compatibility_date = "2023-09-28"
 #   The package "node:net" wasn't found on the file system but is built into node.
 #   Add "node_compat = true" to your wrangler.toml file to enable Node.js compatibility.
 
-node_compat = true
+# Uncomment this line and observe that the warning above is suppressed
+# node_compat = true
